@@ -2,13 +2,14 @@ import Foundation
 
 let countInput = readLine()!
 if let count = Int(countInput.components(separatedBy: " ")[0]) {
-    var i = 0
-    while i < count {
+    var arr: [[Int]] = [[0,0], [0,0], [0,0], [0,0], [0,0] ]
+    for i in 0..<count {
         let line = readLine()!.components(separatedBy: " ")
-        let a = Double(line[0])!
-        let b = Int(line[1])!
-        let data = Int(pow(a, Double(b%4))) % 10
+        arr[i][0] = Int(line[0])!
+        arr[i][1] = Int(line[1])!
+    }
+    for i in 0..<count {
+        let data = Int(pow(Double(arr[i][0]), Double(arr[i][1]%4))) % 10
         data == 0 ? print(10) : print(data)
-        i += 1
     }
 }
